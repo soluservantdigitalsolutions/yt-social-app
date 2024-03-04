@@ -58,7 +58,7 @@ export const followUserController = async (req, res) => {
     const data = await followUser(req.body, req.params);
     res.status(200).json({
       data,
-      message: "Account has been fetched Successfully",
+      message: "Follow User Successfully",
     });
   } catch (err) {
     console.log(err);
@@ -66,13 +66,12 @@ export const followUserController = async (req, res) => {
   }
 };
 
-
 export const unfollowUserController = async (req, res) => {
   try {
     const data = await unfollowUser(req.body, req.params);
     res.status(200).json({
       data,
-      message: "Account has been fetched Successfully",
+      message: "UnFollow User Successfully",
     });
   } catch (err) {
     console.log(err);
