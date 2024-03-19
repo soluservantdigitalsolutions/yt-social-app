@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import coverImage from "./assets/coverImage.jpg";
 import userImage from "./assets/userImage.jpg";
 import NewsFeed from "../../components/NewsFeed/NewsFeed";
 import Rightbar from "../../components/Rightbar/Rightbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import { getUserProfileData } from "../../utils/api/api";
+import { useParams } from "react-router-dom";
 
 const Profile = () => {
+  const { username } = useParams();
+  const [user, setUser] = useState({});
+  console.log(username);
+
+  useEffect(() => {
+    const getUserProfileInfo = async () => {
+      try {
+        const res = await getUserProfileData(username);
+        setUser(res.data.userInfo);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUserProfileInfo();
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -27,8 +45,8 @@ const Profile = () => {
               />
             </div>
             <div className="flex flex-col items-center">
-              <h1 className="font-bold text-2xl">Sylvester Asante</h1>
-              <span>I'm new here!</span>
+              <h1 className="font-bold text-2xl">{user.username}</h1>
+              <span>{user.bio || "I am new here!"}</span>
             </div>
           </div>
           <div className="flex">

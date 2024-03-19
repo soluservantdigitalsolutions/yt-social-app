@@ -2,6 +2,7 @@ import express from "express";
 import {
   createPostController,
   deletePostController,
+  getAllPostsController,
   getPostController,
   getTimelinePostsController,
   likeAndDislikeController,
@@ -23,6 +24,9 @@ router.put("/like-post/:id", likeAndDislikeController);
 
 //get post
 router.get("/get-post/:id", getPostController);
+
+//getAllPosts
+router.get("/", getAllPostsController);
 
 //timeline Posts
 router.get("/get-timeline-posts", getTimelinePostsController);
