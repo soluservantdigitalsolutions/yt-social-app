@@ -33,10 +33,16 @@ const userSchema = new Schema({
   },
   from: {
     type: String,
+    default: "Ghana",
+  },
+  city: {
+    type: String,
+    default: "Accra",
   },
   relationship: {
     type: Number,
     enum: [1, 2, 3],
+    default: 1,
   },
   followers: {
     type: Array,

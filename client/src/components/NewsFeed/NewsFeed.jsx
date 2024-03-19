@@ -4,13 +4,18 @@ import Post from "../Post/Post";
 import { Posts } from "../../data/dummyData";
 import axios from "axios";
 import { getAllPosts, getTimeLinePost } from "../../utils/api/api";
+import { useParams } from "react-router-dom";
 
-const NewsFeed = () => {
+const NewsFeed = ({ userPosts }) => {
   const [posts, setPosts] = useState([]);
+  const { username } = useParams();
+  console.log(username);
   useEffect(() => {
     const timelinePosts = async () => {
       try {
-        const res = await getAllPosts();
+        const res = userPosts
+          ? await getTimeLinePost(username)
+          : await getAllPosts();
         setPosts(res.data.posts);
       } catch (error) {
         console.log(error);

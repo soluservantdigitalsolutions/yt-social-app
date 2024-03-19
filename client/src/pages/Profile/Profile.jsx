@@ -7,6 +7,7 @@ import Rightbar from "../../components/Rightbar/Rightbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { getUserProfileData } from "../../utils/api/api";
 import { useParams } from "react-router-dom";
+import noProfilePic from "./assets/user.png";
 
 const Profile = () => {
   const { username } = useParams();
@@ -34,24 +35,24 @@ const Profile = () => {
           <div>
             <div className="h-[350px] relative">
               <img
-                src={coverImage}
+                src={user.coverPicture || coverImage}
                 alt="cover picture"
                 className="w-full h-[250px] object-cover"
               />
               <img
-                src={userImage}
+                src={user.profilePicture || noProfilePic}
                 alt="profile picture"
                 className="w-[150px] h-[150px] rounded-full object-cover absolute left-0 right-0 m-auto top-[150px] border-[3px] border-white"
               />
             </div>
             <div className="flex flex-col items-center">
               <h1 className="font-bold text-2xl">{user.username}</h1>
-              <span>{user.bio || "I am new here!"}</span>
+              <span>{user.desc || "I am new here!"}</span>
             </div>
           </div>
           <div className="flex">
-            <NewsFeed />
-            <Rightbar profile />
+            <NewsFeed userPosts />
+            <Rightbar user={user} />
           </div>
         </div>
       </div>

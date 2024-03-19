@@ -29,6 +29,6 @@ router.get("/get-post/:id", getPostController);
 router.get("/", getAllPostsController);
 
 //timeline Posts
-router.get("/get-timeline-posts", getTimelinePostsController);
+router.get("/get-timeline-posts/:username", getTimelinePostsController);
 
 export default router;

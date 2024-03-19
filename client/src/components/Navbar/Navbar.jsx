@@ -5,14 +5,17 @@ import { IoChatboxEllipses } from "react-icons/io5";
 import { IoIosNotifications } from "react-icons/io";
 import Logo from "../Logo/Logo";
 import profilePic from "../../assets/profilepic.jpg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="h-[50px] w-full bg-green-600 flex items-center sticky top-0">
       <div className="left bg-red" style={{ flex: 3 }}>
-        <div className="logodiv cursor-pointer">
-          <Logo />
-        </div>
+        <Link to={"/"}>
+          <div className="logodiv cursor-pointer">
+            <Logo />
+          </div>
+        </Link>
       </div>
       <div className="center" style={{ flex: 5 }}>
         <div className="searchBar w-full h-[30px] bg-white rounded-xl flex items-center">
