@@ -9,3 +9,6 @@ export const getAllPosts = () => API.get("/posts");
 export const getUserData = (userId) => API.get(`/users/${userId}`);
 export const getUserProfileData = (username) => API.get(`/users?username=${username}`);
 
+export const likeAndDislikePost = (postId, userId) => API.put(`/posts/like-post/${postId}`, {userId: userId});
+
+

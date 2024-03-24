@@ -13,8 +13,6 @@ const Login = () => {
     e.preventDefault();
     loginAuth({ email: auth.email, password: auth.password }, dispatch);
   };
-
-  console.log(user);
   return (
     <div className="w-screen h-screen bg-green-100 flex items-center justify-center">
       <div className="w-[70%] h-[70%] flex">

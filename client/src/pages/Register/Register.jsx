@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { registerUser } from "../../utils/api/auth.api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [auth, setAuth] = useState({
@@ -104,7 +104,7 @@ const Register = () => {
               Sign Up
             </button>
             <button className="h-[50px] w-1/2 rounded-lg bg-blue-600 hover:bg-blue-700 transition text-white text-lg font-bold self-center">
-              Login Into Your Account
+              <Link to={"/login"}>Login Into Your Account</Link>
             </button>
           </form>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoSearch } from "react-icons/io5";
 import { IoPersonSharp } from "react-icons/io5";
 import { IoChatboxEllipses } from "react-icons/io5";
@@ -6,8 +6,12 @@ import { IoIosNotifications } from "react-icons/io";
 import Logo from "../Logo/Logo";
 import profilePic from "../../assets/profilepic.jpg";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import noProfile from "../../pages/Profile/assets/user.png";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="h-[50px] w-full bg-green-600 flex items-center sticky top-0">
       <div className="left bg-red" style={{ flex: 3 }}>
@@ -56,8 +60,8 @@ const Navbar = () => {
         </div>
         <div className="profilePicDiv">
           <img
-            src={profilePic}
-            alt=""
+            src={user.profilePicture ? user.profilePicture : noProfile}
+            alt="A user Profile Picture"
             className="w-[32px] h-[32px] object-cover rounded-full cursor-pointer"
           />
         </div>
