@@ -70,12 +70,14 @@ const Post = ({ post }) => {
       </div>
       <div className="mt-[20px] mb-[20px]">
         <span>{post?.desc}</span>
-        <img
-          src={postPic}
-          alt="Post Picture"
-          className="mt-[20px] w-full object-contain "
-          style={{ maxHeight: "500px" }}
-        />
+        {post.img && (
+          <img
+            src={post.img}
+            alt="Post Picture"
+            className="mt-[20px] w-full object-contain "
+            style={{ maxHeight: "500px" }}
+          />
+        )}
       </div>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-[5px]">

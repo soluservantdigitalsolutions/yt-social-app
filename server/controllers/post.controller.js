@@ -10,7 +10,7 @@ import {
 
 export const createPostController = async (req, res) => {
   try {
-    const newPost = await createPost(req.body);
+    const newPost = await createPost(req.body, req.file.path);
     res.status(200).json({
       newPost,
       message: "Post has been created Successfully",
