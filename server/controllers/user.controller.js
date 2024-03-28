@@ -2,6 +2,7 @@ import {
   deleteUser,
   followUser,
   getUser,
+  getUserFriends,
   getUserProfile,
   unfollowUser,
   updateUser,
@@ -87,6 +88,19 @@ export const unfollowUserController = async (req, res) => {
     res.status(200).json({
       data,
       message: "UnFollow User Successfully",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};
+
+export const getUserFriendsController = async (req, res) => {
+  try {
+    const friends = await getUserFriends(req.params);
+    res.status(200).json({
+      friends,
+      message: "Friends have fetched Successfully!",
     });
   } catch (err) {
     console.log(err);

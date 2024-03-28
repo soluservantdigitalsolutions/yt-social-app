@@ -102,3 +102,22 @@ export const unfollowUser = async (userdata, updateData) => {
     }
   }
 };
+
+export const getUserFriends = async (params) => {
+  try {
+    const user = await UserModel.findById(params.userId);
+    const friends = await Promise.all(
+      user.followings.map((friendId) => {
+        return UserModel.findById(friendId);
+      })
+    );
+    const friendList = [];
+    friends.map((friend) => {
+      const { _id, username, profilePicture } = friend;
+      friendList.push({ _id, username, profilePicture });
+    });
+    return friendList;
+  } catch (err) {
+    throw err;
+  }
+};

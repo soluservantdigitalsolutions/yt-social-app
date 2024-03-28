@@ -3,6 +3,7 @@ import {
   deleteUserController,
   followUserController,
   getUserController,
+  getUserFriendsController,
   getUserProfileController,
   unfollowUserController,
   updateUserController,
@@ -26,5 +27,8 @@ router.put("/follow/:id", followUserController);
 
 //unfollow User
 router.put("/unfollow/:id", unfollowUserController);
+
+//getFriends
+router.get("/friends/:userId", getUserFriendsController);
 
 export default router;
